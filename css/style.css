@@ -1,0 +1,139 @@
+* {box-sizing: border-box;}
+
+:root {
+    --primColor: #d0e7f9;
+    --secColor: #2c496f;
+    --tertColor: #487eb6;
+    --secFont: 'Arial Narrow', sans-serif;
+    --primFont: 'Open Sans', sans-serif;
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--primFont);
+    background-color: var(--primColor);
+}
+
+a {
+    color: var(--secColor);
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* landing page */
+.landing-header {
+    height: 100vh;
+    background-color: var(--primColor);
+    
+}
+
+.landing-img {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+
+.landing-blurb {
+    color: var(--secColor);
+    font-family: var(--secFont);
+    font-size: calc(16px + (28 - 16) * ((100vw - 300px) / (1600 - 300)));
+    text-shadow: 2px 2px 2px #777;
+}
+
+.landing-h1 {
+    color: var(--tertColor);
+    font-size: calc(32px + (148 - 32) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.landing-h1:hover {
+    color: var(--secColor);
+    text-shadow: 2px 2px 2px #777;
+}
+
+.landing-text {
+    color: var(--secColor);
+    font-family: monospace;
+    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+/* close landing page */
+
+/* home section */
+
+.home-header {
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+}
+.top-nav-item, .social-nav-link, .small-nav-link {
+    color: var(--secColor);
+}
+
+.top-nav-link:hover, .social-nav-link:hover, .small-nav-link:hover {
+    color: var(--tertColor);
+}
+
+.logo-img {
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+}
+
+.address {
+    color: var(--secColor);
+}
+
+.display-div {
+    padding: 40px 0;
+    background-color: var(--primColor);
+}
+
+#homeSection, #menuSection, #directionSection {
+    padding: 40px 0;
+}
+
+/* menuSection */
+
+.menu-text, .direction-h2 {
+    color: var(--secColor);
+}
+
+.item-btn {
+    display: block;
+    margin: 10px auto;
+}
+
+.product-body {
+    position: relative;
+}
+
+.product-text {
+    margin-bottom: 100px;
+    color: #777;
+    font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
+    font-style: italic;
+}
+
+#itemPrice {
+    color: var(--secColor);
+}
+
+.item-btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.checkout-btn {
+    margin-top: 50px;
+}
+
+.checkout-img {
+    width: 200px;
+    box-shadow: 3px 3px 3px #777;
+}
