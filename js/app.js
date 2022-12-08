@@ -82,7 +82,7 @@ class Store {
 
         this.taxRate = 0.07
         this.deliveryFee = 5.99
-        this.total = (this.subTotal * (1 + this.taxRate)) + this.deliveryFee 
+        // this.total = (this.subTotal * (1 + this.taxRate)) + this.deliveryFee 
     }
 
     init() {
@@ -103,6 +103,7 @@ class Store {
 
         navBtns.forEach(button => {
             button.addEventListener('click', ()=> {
+                // console.log(button.dataset['section'])
                 switch(button.dataset['section']) {
                     case 'home':
                         homeSection.classList.add('d-block')
@@ -149,13 +150,25 @@ class Store {
             product.className = 'col'
             product.innerHTML = `
             <div class="card h-100 ">
-                <img src="${item.imgUrl}" alt="placeholder img" class="img-fluid card-img-top" alt="${item.description}" />
+                <img src="${item.imgUrl}" class="img-fluid card-img-top" alt="${item.description}" />
                 <div class="card-body product-body">
-                    <h3 class="card-title item-name text-center text-capitalize" id="itemName">${item.name}</h3>
+                    <h3 class="card-title item-name text-center text-capitalize" id="itemName-${item.id}">${item.name}</h3>
                     <p class="card-text product-text" id="itemDesc">${item.description} - <span id="itemPrice"> ${item.price}</span></p>
                     <button class="btn card-button item-btn btn-secondary text-capitalize" id="itemBtn-${item.id}" data-id="${item.id}">add to cart</button>
                 </div>
             </div>`
+
+            /**
+             * 
+             * const cardDiv = document.createElement('div')
+             * cardDiv.classList.add(' card h-100')
+             * const cardImage = document.createElement('img')
+             * cardImage.src = item.imgUrl
+             * cardImage.alt = item.description 
+             * cardImage.classList.add('img-fluid card-img-top')
+             * cardDiv.append(cardImage)
+             * product.append(cardDiv)
+             */
             itemRow.append(product)
         })
 
@@ -174,20 +187,17 @@ class Store {
                 //  loop through items
                 this.items.forEach(item => {
                     if (button.dataset['id'] == item.id) {
-                        // console.log(item.name)
                         itemCount++
                         subtotal+= item.price
                         this.itemsInCart = {
                             itemCount: itemCount,
+                            // itemCount,
                             subTotal: subtotal
                         }
                         
                         item.qty++
-                        // subtotal += item.price
-
                         itemsInCart.innerText = itemCount
                         cartSubtotal.innerText = subtotal
-                        // console.log(item)
                     }
                 })
                 
@@ -198,10 +208,9 @@ class Store {
     checkoutBtn() {
         const checkoutBtn = document.getElementById('checkoutBtn')
         const menuSection = this.menuSection
-        const checkoutSection = document.getElementById('checkoutSection')
+        const checkoutSection = this.checkoutSection
 
         checkoutBtn.addEventListener('click', ()=> {
-            // console.log('clicked')
 
             menuSection.classList.add('d-none')
             checkoutSection.classList.remove('d-none')
@@ -223,10 +232,8 @@ class Store {
         const tableBody = document.getElementById('tableBody')
     
         items.forEach(item => {
-            // console.log(item)
             if (item.qty > 0) {
                 subTimesQty = item.qty * item.price
-                console.log(item.name, subTimesQty)
                 const tableRow = document.createElement('tr')
                 tableRow.innerHTML = `
                 <th scope="row">
